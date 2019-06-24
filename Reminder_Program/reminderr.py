@@ -71,6 +71,6 @@ while c:
          print "Exiting.."
          break                                                          #exit from while
         
- # here we can write the code for automatic generation of notification
+ # here we can write the code for realtime notification
 
 
