@@ -1,6 +1,6 @@
 import time
 import sqlite3
-conn = sqlite3.connect('new.db')
+conn = sqlite3.connect('new.db')                                          #database connection
 c=1
 
 while c:
@@ -8,13 +8,13 @@ while c:
     print "-------------------------------------------------------------------------------------------------------------"
 
     if choice==1:
-        print "Add Reminder:\n"
+        print "Add Reminder:\n"                                          # creating memo with date time and memo
 
         date_entry = raw_input("Enter the date (YYYY-MM-DD):")
         time_entry = raw_input("Enter the time (HH-MM-SS):")
         notification = raw_input("Enter memo:")
         p=''
-        v=conn.execute("select max(id) from reminder")
+        v=conn.execute("select max(id) from reminder")                  #autoincrement table id (unique field)
         for i in v:
            p= int(i[0])
         p+=1
@@ -28,7 +28,7 @@ while c:
         # choice = input("1.Add reminder\n2.Edit reminder\n3.View Notifications\n4.Exit")
         print "---------------------------------------------------------------------------------------------------------"
     elif choice==2:
-        print "Edit Reminder:"
+        print "Edit Reminder:"                                              #update reminders
 
         rid = input("Choose your reminder id:")
         r_date=raw_input("Enter date:")
@@ -43,7 +43,7 @@ while c:
             c = 0
         print "---------------------------------------------------------------------------------------------------------"
     elif choice==3:
-        print "View Memo:"
+        print "View Memo:"                                              #view all reminders
 
         c = conn.execute("select * from reminder")
         for i in c:  # values are iterated
@@ -55,7 +55,7 @@ while c:
             c = 0
         print "---------------------------------------------------------------------------------------------------------"
     elif choice == 4:
-        print "Remove Reminder:"
+        print "Remove Reminder:"                                        #removing reminders
 
         rid = raw_input("Choose your reminder:")
         int(rid)
@@ -69,6 +69,8 @@ while c:
         print "---------------------------------------------------------------------------------------------------------"
     else:
          print "Exiting.."
-         break
+         break                                                          #exit from while
+        
+ # here we can write the code for automatic generation of notification
 
 
